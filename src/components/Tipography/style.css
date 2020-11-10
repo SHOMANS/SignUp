@@ -1,0 +1,130 @@
+.input {
+  width: 426px;
+  height: 64px;
+  padding: 23px 30px 24px 30px;
+  font-size: 14px;
+  line-height: 16.94px;
+  font-weight: 500;
+  font-style: normal;
+  color: #8692A6;
+  border-radius: 6px;
+  border: 1px solid #8692A6;
+}
+
+.label {
+  font-size: 16px;
+  color:#696F79;
+  
+}
+
+/* .checkContainer {
+
+} */
+
+.check {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.button {
+  width: 426px;
+  height: 64px;
+  text-align: center;
+  padding-top: 23px;
+  padding-bottom: 22px;
+  font-size: 16px;
+  line-height: 19.36px;
+  font-weight: 500;
+  font-style: normal;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  font-weight: 600;
+}
+
+.button:hover {
+  transform: scale(1.03);
+}
+
+.normalButton {
+  background-color: #1565D8;
+  color: #FFFFFF;
+}
+
+.google {
+  background-color: #FFFFFF;
+  color: black;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+/* .back {
+} */
+
+.backContainer {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  height: 30px;
+  margin-left: 35px;
+  margin-top: 15px;
+}
+
+
+.strongTest {
+  width: 426px;
+  height: 4px;
+  background-color: #c4c4c4;
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+.how,
+.none,
+.week,
+.normal,
+.strong,
+.vstrong {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.none {
+  width: 0;
+}
+.week {
+  width: 100px;
+  background-color: #ff0707;
+}
+.week ~ p {
+  color: #ff0707;
+}
+.normal {
+  width: 200px;
+  background-color: #ff9307;
+}
+.normal ~ p {
+  color: #ff9307;
+}
+.strong {
+  width: 300px;
+  background-color: #ffc107;
+}
+.strong ~ p {
+  color: #ffc107;
+}
+.vstrong {
+  width: 426px;
+  background-color: #17c83d;
+}
+.vstrong ~ p {
+  color: #17c83d;
+}
+.paspar {
+  margin-top: 5px;
+}

@@ -1,0 +1,38 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 836px;
+  justify-content: space-between;
+  padding: 0;
+  margin-left: 151px;
+  align-self: center;
+}
+
+.headen {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.paragraph {
+  width: 360px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 50px;
+  color: #8692A6;
+}
+
+.or {
+  display: flex;
+  width: 426px;
+  justify-content: space-between;
+  color: #BABABA;
+}
+
+hr {
+  display: inline-block;
+  width: 172px;
+  height: 1px;
+  margin-top: 10px;
+  border-color: #F5F5F5;
+}

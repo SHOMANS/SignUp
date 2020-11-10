@@ -64,10 +64,10 @@ export default class Form extends React.Component {
   };
 
   render() {
-    const { testPass, passTestPar, checkBox } = this.state;
+    // const { testPass, passTestPar, checkBox } = this.state;
     return (
       <form className="form" onSubmit={this.submit}>
-        <h3 className="headen">Register Individual Account!</h3>
+        <h3>Register Individual Account!</h3>
         <p className="paragraph">
           For the purpose of gamers regulation, your details are required.
         </p>
@@ -89,36 +89,31 @@ export default class Form extends React.Component {
           label="Create Password*"
           passwordStrong={this.passwordStrong}
         />
-        <T.TestPass testPass={testPass} passTestPar={passTestPar} />
-        <T.Input
+        {/* <T.TestPass testPass={testPass} passTestPar={passTestPar} /> */}
+        {/* <T.Input
           type="password"
           name="rePasseord"
           placeHolder="Repeat Passeord"
           handleOnChange={this.handleOnChange}
           label="Repeat password*"
-        />
-        <T.Check
+        /> */}
+        {/* <T.Check
           type="checkbox"
           name="checkBox"
           label="I agree to terms &amp; conditions"
           handleOnChange={this.handleOnChange}
           checked={checkBox}
-        />
+        /> */}
         <T.Button
           className="button normalButton"
           type="submit"
           content="Register new Account"
         />
-        <div className="or">
-          <hr />
-          OR
-          <hr />
-        </div>
-        <T.Button
+        {/* <T.Button
           className="button google"
           type="button"
           content="You have an account? Login"
-        />
+        /> */}
       </form>
     );
   }

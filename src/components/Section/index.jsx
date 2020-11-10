@@ -1,12 +1,21 @@
 import React from "react";
+import "./style.css";
 // import FlatColorIconsGoogle from "../images/FlatColorIconsGoogle.svg";
 
-function Section() {
+function Section(props) {
+  const { paragraph, imgsrc, imgalt, imgClass } = props;
   return (
     <>
-      <section>
+      <section className="section">
         {/* <svg src={FlatColorIconsGoogle} alt="logo" /> */}
-        <p></p>
+
+        <img className={imgClass} src={imgsrc} alt={imgalt} />
+        <div className="blueLayer">
+          <p className="textInBlue">
+            {paragraph}
+            <span className="span">Hideo Kojima</span>
+          </p>
+        </div>
       </section>
     </>
   );

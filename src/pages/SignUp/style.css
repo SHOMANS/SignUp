@@ -1,0 +1,12 @@
+.container {
+  width: 1440px;
+  height: 1024px;
+  display: flex;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+
+.aside {
+  width: 798px;
+  display: flex;
+}
