@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 763px;
+  justify-content: space-between;
+  padding: 0;
+  margin-left: 151px;
+  align-self: center;
+}
+
+.paragraph {
+  width: 426px;
+}
