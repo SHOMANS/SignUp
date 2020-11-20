@@ -1,120 +1,66 @@
 import React from "react";
 import * as T from "../Tipography";
+import { Link } from "react-router-dom";
+import * as yup from "yup";
 
 import "./style.css";
 
-export default class Form extends React.Component {
-  state = {
-    Email: "",
-    password: "",
-    rePasseord: "",
-    checkBox: true,
-    testPass: "",
-    passTestPar: "Write a strong password",
-  };
+import { useState } from "react";
 
-  handleOnChange = (e) => {
-    const { value, name, checked } = e.target;
-    this.setState(() => {
-      if (name === "checkBox") {
-        return {
-          [name]: checked,
-        };
-      }
-      return {
-        [name]: value,
-      };
-    });
-  };
+export default function Form() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
-  passwordStrong = (e) => {
-    const { value } = e.target;
-    if (value.length < 5) {
-      this.setState({
-        testPass: "none",
-        passTestPar: "Write a strong password",
-      });
-    } else if (value.length <= 8) {
-      this.setState({
-        testPass: "week",
-        passTestPar: "Your password is too week",
-      });
-    } else if (value.length <= 14) {
-      this.setState({
-        testPass: "normal",
-        passTestPar: "You can make strronger password",
-      });
-    } else if (value.length <= 20) {
-      this.setState({
-        testPass: "strong",
-        passTestPar: "Your password is strong enouph",
-      });
-    } else {
-      this.setState({
-        testPass: "vstrong",
-        passTestPar: "Your password is too strong",
-      });
-    }
-  };
-
-  submit = (e) => {
-    const s = this.state;
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(s);
+    // const { Email, password, rePasseord, checkBox } = this.state;
+    const signUpSchema = yup.object().shape({
+      email: yup.string().email().required(),
+      password: yup.string().required(),
+    });
+    signUpSchema
+      .validate({ email, password }, { abortEarly: false })
+      .then(() => {
+        console.log("valid");
+      })
+      .catch((err) => {
+        console.log("Error");
+        console.log(err.message);
+        setErrMsg(err.message);
+      });
   };
 
-  render() {
-    // const { testPass, passTestPar, checkBox } = this.state;
-    return (
-      <form className="form" onSubmit={this.submit}>
-        <h3>Register Individual Account!</h3>
-        <p className="paragraph">
-          For the purpose of gamers regulation, your details are required.
-        </p>
-        <T.Input
-          type="text"
-          name="Email"
-          placeHolder="Email"
-          handleOnChange={this.handleOnChange}
-          label="Email address*"
-        />
-        <T.Input
-          type="password"
-          name="password"
-          placeHolder="password"
-          handleOnChange={(e) => {
-            this.handleOnChange(e);
-            this.passwordStrong(e);
-          }}
-          label="Create Password*"
-          passwordStrong={this.passwordStrong}
-        />
-        {/* <T.TestPass testPass={testPass} passTestPar={passTestPar} /> */}
-        {/* <T.Input
-          type="password"
-          name="rePasseord"
-          placeHolder="Repeat Passeord"
-          handleOnChange={this.handleOnChange}
-          label="Repeat password*"
-        /> */}
-        {/* <T.Check
-          type="checkbox"
-          name="checkBox"
-          label="I agree to terms &amp; conditions"
-          handleOnChange={this.handleOnChange}
-          checked={checkBox}
-        /> */}
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <h3>Register Individual Account!</h3>
+      <p className="paragraph">
+        For the purpose of gamers regulation, your details are required.
+      </p>
+      <span>{errMsg}</span>
+      <T.Input
+        type="text"
+        name="Email"
+        placeHolder="Email"
+        handleOnChange={(e) => setEmail(e.target.value)}
+        label="Email address*"
+      />
+      <T.Input
+        type="password"
+        name="password"
+        placeHolder="password"
+        handleOnChange={(e) => setPassword(e.target.value)}
+        label="Your Password"
+        passwordStrong={password}
+      />
+      <T.Button className="button normalButton" type="submit" content="Login" />
+      <Link to="/">
         <T.Button
-          className="button normalButton"
-          type="submit"
-          content="Register new Account"
-        />
-        {/* <T.Button
           className="button google"
           type="button"
-          content="You have an account? Login"
-        /> */}
-      </form>
-    );
-  }
+          content="Register new Account"
+        />
+      </Link>
+    </form>
+  );
 }
